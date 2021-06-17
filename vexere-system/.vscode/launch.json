@@ -1,0 +1,34 @@
+{
+	"configurations": [
+		{
+			"type": "java",
+			"name": "Spring Boot-VexerePartnerApplication<vexere-partner>",
+			"request": "launch",
+			"cwd": "${workspaceFolder}",
+			"console": "internalConsole",
+			"mainClass": "com.example.vexerepartner.VexerePartnerApplication",
+			"projectName": "vexere-partner",
+			"args": ""
+		},
+		{
+			"type": "java",
+			"name": "Spring Boot-GatewayApplication<gateway>",
+			"request": "launch",
+			"cwd": "${workspaceFolder}",
+			"console": "internalConsole",
+			"mainClass": "com.example.gateway.GatewayApplication",
+			"projectName": "gateway",
+			"args": ""
+		},
+		{
+			"type": "java",
+			"name": "Spring Boot-ServerApplication<server>",
+			"request": "launch",
+			"cwd": "${workspaceFolder}",
+			"console": "internalConsole",
+			"mainClass": "com.example.server.ServerApplication",
+			"projectName": "server",
+			"args": ""
+		}
+	]
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/BookingTicket.iml" filepath="$PROJECT_DIR$/.idea/BookingTicket.iml" />
+      <module fileurl="file://$PROJECT_DIR$/futa-bus/futa-bus.iml" filepath="$PROJECT_DIR$/futa-bus/futa-bus.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gateway/gateway.iml" filepath="$PROJECT_DIR$/gateway/gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gateway/gateway-service.iml" filepath="$PROJECT_DIR$/gateway/gateway-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/myBusTicketData/myBusTicketData.iml" filepath="$PROJECT_DIR$/myBusTicketData/myBusTicketData.iml" />
+      <module fileurl="file://$PROJECT_DIR$/search/search.iml" filepath="$PROJECT_DIR$/search/search.iml" />
+      <module fileurl="file://$PROJECT_DIR$/server/server.iml" filepath="$PROJECT_DIR$/server/server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/vexere-bus/vexere-bus.iml" filepath="$PROJECT_DIR$/vexere-bus/vexere-bus.iml" />
+    </modules>
+  </component>
+</project>

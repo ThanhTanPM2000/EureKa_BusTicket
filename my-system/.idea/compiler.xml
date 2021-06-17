@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="futa-bus" />
+        <module name="server" />
+        <module name="myBusTicketData" />
+        <module name="search" />
+        <module name="gateway-service" />
+        <module name="vexere-bus" />
+        <module name="gateway" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="futa-bus" target="11" />
+      <module name="gateway" target="1.8" />
+      <module name="gateway-service" target="1.8" />
+      <module name="myBusTicketData" target="11" />
+      <module name="search" target="11" />
+      <module name="server" target="11" />
+      <module name="vexere-bus" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="futa-bus" options="-parameters" />
+      <module name="gateway" options="-parameters" />
+      <module name="gateway-service" options="-parameters" />
+      <module name="myBusTicketData" options="-parameters" />
+      <module name="search" options="-parameters" />
+      <module name="server" options="-parameters" />
+      <module name="vexere-bus" options="-parameters" />
+    </option>
+  </component>
+</project>

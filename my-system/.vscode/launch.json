@@ -1,0 +1,54 @@
+{
+	"configurations": [
+		{
+			"type": "java",
+			"name": "Spring Boot-VexereBusApplication<vexere-bus>",
+			"request": "launch",
+			"cwd": "${workspaceFolder}",
+			"console": "internalConsole",
+			"mainClass": "com.example.vexerebus.VexereBusApplication",
+			"projectName": "vexere-bus",
+			"args": ""
+		},
+		{
+			"type": "java",
+			"name": "Spring Boot-GatewayApplication<gateway-service>",
+			"request": "launch",
+			"cwd": "${workspaceFolder}",
+			"console": "internalConsole",
+			"mainClass": "com.example.gateway.GatewayApplication",
+			"projectName": "gateway-service",
+			"args": ""
+		},
+		{
+			"type": "java",
+			"name": "Spring Boot-FutaBusApplication<futa-bus>",
+			"request": "launch",
+			"cwd": "${workspaceFolder}",
+			"console": "internalConsole",
+			"mainClass": "com.example.futabus.FutaBusApplication",
+			"projectName": "futa-bus",
+			"args": ""
+		},
+		{
+			"type": "java",
+			"name": "Spring Boot-SearchApplication<search>",
+			"request": "launch",
+			"cwd": "${workspaceFolder}",
+			"console": "internalConsole",
+			"mainClass": "com.example.search.SearchApplication",
+			"projectName": "search",
+			"args": ""
+		},
+		{
+			"type": "java",
+			"name": "Spring Boot-ServerApplication<server>",
+			"request": "launch",
+			"cwd": "${workspaceFolder}",
+			"console": "internalConsole",
+			"mainClass": "com.example.server.ServerApplication",
+			"projectName": "server",
+			"args": ""
+		}
+	]
+}
