@@ -1,6 +1,6 @@
 package com.example.search.controller;
 
-import com.example.search.entity.Ticket;
+import com.example.search.entitys.Ticket;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -8,13 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import javax.ws.rs.GET;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
+
 
 @RestController
 @RequestMapping("/")
@@ -27,8 +22,10 @@ public class HomeController {
     private Environment env;
 
     @RequestMapping("/")
-    public String home() {
-        return "hello";
+    public List<Ticket> getData() {
+        List<Ticket> searchData = restTemplate.getForObject("http://myBusTicketData-service/", List.class);
+        return searchData;
     }
+
 
 }

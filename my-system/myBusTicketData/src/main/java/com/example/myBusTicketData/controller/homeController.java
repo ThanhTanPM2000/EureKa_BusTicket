@@ -1,6 +1,6 @@
 package com.example.myBusTicketData.controller;
 
-import com.example.myBusTicketData.entity.Ticket;
+import com.example.myBusTicketData.entitys.Ticket;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.circuitbreaker.CircuitBreaker;
 import org.springframework.cloud.client.circuitbreaker.CircuitBreakerFactory;
@@ -38,23 +38,22 @@ public class homeController {
     }
 
     @RequestMapping("/{from}/{to}}")
-    public ResponseEntity<List<Ticket>> getTicket(@PathVariable final String from, @PathVariable final String to) {
+    public ResponseEntity<List<Ticket>> getTicket(@PathVariable("from") final String from, @PathVariable("to") final String to) {
 
         String Key = from + "-" + to;
         Ticket ticket = new Ticket();
-        ticket.setKey(from + "-" + to);
 
-        List<Object> ticketBus = new ArrayList();
+        List<Ticket> ticketBus = new ArrayList();
 
         ticketBus = redisTemplate.opsForHash().values(Key);
         if(ticketBus.isEmpty()){
             CircuitBreaker circuitBreaker = circuitBreakerFactory.create("circuitbreaker");
 
 
-            List<Object> VeXeRe = circuitBreaker.run(() -> restTemplate.getForObject("http://vexere-service/"+ from + "/" + to, List.class),
+            List<Ticket> VeXeRe = circuitBreaker.run(() -> restTemplate.getForObject("http://vexere-service/"+ from + "/" + to, List.class),
                     throwable -> getDefaultAlbumList());
 
-            List<Object> Futa = circuitBreaker.run(() -> restTemplate.getForObject("http://futa-service/" + from + "/" + to, List.class),
+            List<Ticket> Futa = circuitBreaker.run(() -> restTemplate.getForObject("http://futa-service/" + from + "/" + to, List.class),
                     throwable -> getDefaultAlbumList());
 
             if (VeXeRe != null)
@@ -63,17 +62,21 @@ public class homeController {
                 ticketBus.addAll(Futa);
 
             try {
-                redisTemplate.opsForHash().put(Key, ticket.getKey(), ticketBus);
-                return ResponseEntity.ok(ticketBus);
+                redisTemplate.opsForHash().put(Key, ticket.get_id(), ticketBus);
             } catch (Exception e) {
                 e.printStackTrace();
-                return;
+                ResponseEntity.ok(new ArrayList());
             }
         }
 
 
-        ticket.setTickets(ticketBus);
-        return ticket;
+
+        return ResponseEntity.ok(ticketBus);
+    }
+
+    @RequestMapping("/hello")
+    public String test() {
+        return "this is my bus ticket";
     }
 
     public List<Object> getDefaultAlbumList() {
