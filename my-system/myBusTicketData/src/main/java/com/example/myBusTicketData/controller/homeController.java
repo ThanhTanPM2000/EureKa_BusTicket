@@ -7,9 +7,7 @@ import org.springframework.cloud.client.circuitbreaker.CircuitBreakerFactory;
 import org.springframework.core.env.Environment;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 
@@ -32,12 +30,7 @@ public class homeController {
     @Autowired
     private Environment env;
 
-    @RequestMapping("/")
-    public String home() {
-        return "Welcome to My BusTicket Data Service, this service merged data from futa and vexere service, to use pls add endpoint /search/from/to";
-    }
-
-    @RequestMapping("/{from}/{to}}")
+    @RequestMapping(value = "/{from}/{to}", method = RequestMethod.GET)
     public ResponseEntity<List<Ticket>> getTicket(@PathVariable("from") final String from, @PathVariable("to") final String to) {
 
         String Key = from + "-" + to;
@@ -74,12 +67,13 @@ public class homeController {
         return ResponseEntity.ok(ticketBus);
     }
 
-    @RequestMapping("/hello")
-    public String test() {
-        return "this is my bus ticket";
+    @RequestMapping("/hi")
+    public String home() {
+        return "Welcome to My BusTicket Data Service, this service merged data from futa and vexere service, to use pls add endpoint /search/from/to";
     }
 
-    public List<Object> getDefaultAlbumList() {
+    public List<Ticket> getDefaultAlbumList() {
+
         return new ArrayList<>();
     }
 }

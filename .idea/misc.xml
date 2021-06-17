@@ -4,6 +4,14 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/my-system/myBusTicketData/pom.xml" />
+        <option value="$PROJECT_DIR$/my-system/gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/my-system/futa-bus/pom.xml" />
+        <option value="$PROJECT_DIR$/my-system/search/pom.xml" />
+        <option value="$PROJECT_DIR$/my-system/server/pom.xml" />
+        <option value="$PROJECT_DIR$/my-system/vexere-bus/pom.xml" />
+        <option value="$PROJECT_DIR$/vexere-system/gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/vexere-system/server/pom.xml" />
+        <option value="$PROJECT_DIR$/vexere-system/vexere-partner/pom.xml" />
       </list>
     </option>
   </component>

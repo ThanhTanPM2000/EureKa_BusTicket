@@ -38,11 +38,11 @@ class RestTemplateConfig {
 	@Bean
 	public Customizer<Resilience4JCircuitBreakerFactory> globalCustomConfiguration() {
 		TimeLimiterConfig timeLimiterConfig = TimeLimiterConfig.custom()
-				.timeoutDuration(Duration.ofSeconds(4))
+				.timeoutDuration(Duration.ofSeconds(10))
 				.build();
 		CircuitBreakerConfig circuitBreakerConfig = CircuitBreakerConfig.custom()
 				.failureRateThreshold(50)
-				.waitDurationInOpenState(Duration.ofMillis(4000))
+				.waitDurationInOpenState(Duration.ofMillis(10000))
 				.slidingWindowSize(2)
 				.build();
 

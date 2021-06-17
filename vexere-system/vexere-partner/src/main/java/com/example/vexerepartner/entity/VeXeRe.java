@@ -1,69 +1,70 @@
 package com.example.vexerepartner.entity;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
+import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.util.Date;
 
+@Document(collection = "vexere")
 public class VeXeRe {
-    private Integer id;
-    private String title;
-    private String from;
-    private String to;
-    private String time;
-    private Integer price;
+    @Id
+    @JsonSerialize(using= ToStringSerializer.class)
+    private ObjectId _id;
+    private String Title;
+    private String From;
+    private String To;
+    private String Time;
+    private Integer Price;
 
-    public VeXeRe(Integer id, String title, String from, String to, String time, Integer price) {
-        this.id = id;
-        this.title = title;
-        this.from = from;
-        this.to = to;
-        this.time = time;
-        this.price = price;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
+    public VeXeRe(ObjectId _id, String Title, String From, String To, String Time, Integer Price) {
+        this._id = _id;
+        this.Title = Title;
+        this.From = From;
+        this.To = To;
+        this.Time = Time;
+        this.Price = Price;
     }
 
     public String getTitle() {
-        return title;
+        return Title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setTitle(String Title) {
+        this.Title = Title;
     }
 
     public String getFrom() {
-        return from;
+        return From;
     }
 
-    public void setFrom(String from) {
-        this.from = from;
+    public void setFrom(String From) {
+        this.From = From;
     }
 
     public String getTo() {
-        return to;
+        return To;
     }
 
-    public void setTo(String to) {
-        this.to = to;
+    public void setTo(String To) {
+        this.To = To;
     }
 
     public String getTime() {
-        return time;
+        return Time;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setTime(String Time) {
+        this.Time = Time;
     }
 
     public Integer getPrice() {
-        return price;
+        return Price;
     }
 
-    public void setPrice(Integer price) {
-        this.price = price;
+    public void setPrice(Integer Price) {
+        this.Price = Price;
     }
 }
