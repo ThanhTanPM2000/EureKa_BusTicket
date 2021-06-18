@@ -27,14 +27,10 @@ public class homeController {
     @Autowired
     private RestTemplate restTemplate;
 
-    @Autowired
-    private Environment env;
-
     @RequestMapping(value = "/{from}/{to}", method = RequestMethod.GET)
     public ResponseEntity<List<Ticket>> getTicket(@PathVariable("from") final String from, @PathVariable("to") final String to) {
 
         String Key = from + "-" + to;
-        Ticket ticket = new Ticket();
 
         List<Ticket> ticketBus = new ArrayList();
 

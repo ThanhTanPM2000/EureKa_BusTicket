@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="futa-bus" />
+        <module name="calendar" />
         <module name="myBusTicketData" />
         <module name="server" />
         <module name="search" />
@@ -19,6 +20,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="calendar" target="11" />
       <module name="futa-bus" target="11" />
       <module name="gateway" target="1.8" />
       <module name="gateway-service" target="1.8" />
@@ -32,6 +34,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="calendar" options="-parameters" />
       <module name="futa-bus" options="-parameters" />
       <module name="gateway" options="-parameters" />
       <module name="gateway-service" options="-parameters" />

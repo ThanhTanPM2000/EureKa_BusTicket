@@ -1,20 +1,21 @@
-package com.example.search.controller;
+package com.example.calendar.controllers;
 
-import com.example.search.entitys.Ticket;
+import com.example.calendar.entitys.Ticket;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
 @RestController
 @RequestMapping("/")
-public class HomeController {
-
+public class calendarController {
     @Autowired
     private RestTemplate restTemplate;
 
@@ -36,5 +37,10 @@ public class HomeController {
             return searchData;
         }
         return ticketBus;
+    }
+
+    @GetMapping(value = "/hi")
+    public String hello() {
+        return "Hello";
     }
 }
