@@ -1,5 +1,9 @@
 package com.example.vexerepartner.controller;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -36,6 +40,7 @@ public class searchController {
             var listVexere = vexereRepository.findAll();
             List<VeXeRe> reponse = new ArrayList();
             for (VeXeRe item : listVexere) {
+
                 if (item.getFrom().equals(from) && item.getTo().equals(to)) {
                     reponse.add(item);
                 }
@@ -45,5 +50,18 @@ public class searchController {
             Thread.currentThread().interrupt();
             return new ArrayList();
         }
+    }
+
+    @GetMapping(value = "/{from}/{to}/{day}/{month}/{year}")
+    public List<VeXeRe> getData(@PathVariable("from") final String from, @PathVariable("to") final String to, @PathVariable("day") final String day, @PathVariable("month") final String month, @PathVariable("year") final String year) {
+        var listVexere = vexereRepository.findAll();
+        List<VeXeRe> reponse = new ArrayList();
+        String Key = day+"/" + month + "/" + year;
+        for (VeXeRe item : listVexere) {
+            if (item.getFrom().equals(from) && item.getTo().equals(to) && item.getTime().equals(Key)) {
+                reponse.add(item);
+            }
+        }
+        return reponse;
     }
 }

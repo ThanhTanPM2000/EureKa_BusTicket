@@ -22,25 +22,18 @@ public class calendarController {
     @Autowired
     private RedisTemplate redisTemplate;
 
-    @Autowired
-    private Environment env;
 
-    @GetMapping(value = "/{from}/{to}")
-    public List<Ticket> getData(@PathVariable("from") final String from, @PathVariable("to") final String to) {
-        String Key = from + "-" + to;
+    @GetMapping(value = "/{from}/{to}/{day}/{month}/{year}")
+    public List<Number> getData(@PathVariable("from") final String from, @PathVariable("to") final String to, @PathVariable("day") final String day, @PathVariable("month") final String month, @PathVariable("year") final String year) {
+        String Key = from + "-" + to + "-" + day + "/" + month + "/" + year;
 
-        List<Ticket> ticketBus = new ArrayList();
+        List<Number> price = new ArrayList();
 
-        ticketBus = redisTemplate.opsForHash().values(Key);
-        if(ticketBus.size() == 0){
-            List<Ticket> searchData = restTemplate.getForObject("http://myBusTicketData-service/" + from +"/" + to, List.class);
-            return searchData;
+        price = redisTemplate.opsForHash().values(Key);
+        //price = redisTemplate.opsForValue().get(Key);
+        if (price.isEmpty()) {
+             price = restTemplate.getForObject("http://myBusTicketData-service/" + from + "/" + to + "/" + day + "/" + month + "/" + year, List.class);
         }
-        return ticketBus;
-    }
-
-    @GetMapping(value = "/hi")
-    public String hello() {
-        return "Hello";
+        return price;
     }
 }

@@ -28,8 +28,8 @@ public class HomeController {
     private Environment env;
 
     @RequestMapping("/{from}/{to}")
-    public Futa[] getFuTaTickets(@PathVariable("from") final String from, @PathVariable("to") final String to) throws Exception {
-        HttpURLConnection connection = (HttpURLConnection) new URL("http://localhost:8841/futa/" + from + "/" +to).openConnection();
+    public List getFuTaTickets(@PathVariable("from") final String from, @PathVariable("to") final String to) throws Exception {
+        HttpURLConnection connection = (HttpURLConnection) new URL("http://localhost:1106/futa/" + from + "/" +to).openConnection();
         connection.setRequestMethod("GET");
         BufferedReader inputReader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
         String inputLine;
@@ -39,6 +39,6 @@ public class HomeController {
         }
         inputReader.close();
         Gson gson = new Gson();
-        return gson.fromJson(content.toString(), Futa[].class);
+        return gson.fromJson(content.toString(), List.class);
     }
 }

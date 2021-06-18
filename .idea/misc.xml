@@ -13,6 +13,8 @@
         <option value="$PROJECT_DIR$/vexere-system/server/pom.xml" />
         <option value="$PROJECT_DIR$/vexere-system/vexere-partner/pom.xml" />
         <option value="$PROJECT_DIR$/my-system/calendar/pom.xml" />
+        <option value="$PROJECT_DIR$/futa-system/server/pom.xml" />
+        <option value="$PROJECT_DIR$/futa-system/gateway/pom.xml" />
       </list>
     </option>
   </component>
