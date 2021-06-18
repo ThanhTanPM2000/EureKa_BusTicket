@@ -39,29 +39,30 @@ public class homeController {
         List<Ticket> ticketBus = new ArrayList();
 
         ticketBus = redisTemplate.opsForHash().values(Key);
-        if(ticketBus.isEmpty()){
+        if (ticketBus.isEmpty()) {
             CircuitBreaker circuitBreaker = circuitBreakerFactory.create("circuitbreaker");
 
-
-            List<Ticket> VeXeRe = circuitBreaker.run(() -> restTemplate.getForObject("http://vexere-service/"+ from + "/" + to, List.class),
+            System.out.println(restTemplate.getForObject("http://vexere-service/" + from + "/" + to, List.class));
+            List<Ticket> VeXeRe = circuitBreaker.run(() -> restTemplate.getForObject("http://vexere-service/" + from + "/" + to, List.class),
                     throwable -> getDefaultAlbumList());
 
             List<Ticket> Futa = circuitBreaker.run(() -> restTemplate.getForObject("http://futa-service/" + from + "/" + to, List.class),
-                    throwable -> getDefaultAlbumList());
+                   throwable -> getDefaultAlbumList());
 
-            if (VeXeRe != null)
+            System.out.println(VeXeRe);
+            if (VeXeRe.size() != 0 || !VeXeRe.isEmpty() || VeXeRe != null)
                 ticketBus.addAll(VeXeRe);
-            if (Futa != null)
+            if (Futa.size() != 0 || !Futa.isEmpty() || Futa != null)
                 ticketBus.addAll(Futa);
 
+            System.out.println(("Day la: " + ticketBus));
             try {
-                redisTemplate.opsForHash().put(Key, ticket.get_id(), ticketBus);
+                redisTemplate.opsForHash().put(Key, Key, ticketBus);
             } catch (Exception e) {
                 e.printStackTrace();
                 ResponseEntity.ok(new ArrayList());
             }
         }
-
 
 
         return ResponseEntity.ok(ticketBus);

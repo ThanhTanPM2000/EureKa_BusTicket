@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import com.example.vexerepartner.entity.VeXeRe;
 
@@ -17,26 +18,32 @@ import org.springframework.web.client.RestTemplate;
 @RequestMapping("/")
 public class searchController {
 
-	@Autowired
-	private VexereRepository vexereRepository;
+    @Autowired
+    private VexereRepository vexereRepository;
 
-	@Autowired
-	private Environment env;
+    @Autowired
+    private Environment env;
 
-	@RequestMapping(value = "/tickets",method = RequestMethod.GET)
-	public List<VeXeRe> getVexereTickets() {
-		return vexereRepository.findAll();
-	}
+    @RequestMapping(value = "/tickets", method = RequestMethod.GET)
+    public List<VeXeRe> getVexereTickets() {
+        return vexereRepository.findAll();
+    }
 
-	@RequestMapping(value = "/{from}/{to}",method = RequestMethod.GET)
-	public List<VeXeRe> getVexereTicketsFT(@PathVariable("from") String from , @PathVariable("to") String to) {
-		var listVexere = vexereRepository.findAll();
-		List<VeXeRe> reponse = new ArrayList();
-		for(VeXeRe item: listVexere) {
-			if(item.getFrom().equals(from) && item.getTo().equals(to)) {
-				reponse.add(item);
-			}
-		}
-		return reponse;
-	}
+    @RequestMapping(value = "/{from}/{to}", method = RequestMethod.GET)
+    public List<VeXeRe> getVexereTicketsFT(@PathVariable("from") String from, @PathVariable("to") String to) {
+        try {
+            TimeUnit.SECONDS.sleep(5);
+            var listVexere = vexereRepository.findAll();
+            List<VeXeRe> reponse = new ArrayList();
+            for (VeXeRe item : listVexere) {
+                if (item.getFrom().equals(from) && item.getTo().equals(to)) {
+                    reponse.add(item);
+                }
+            }
+            return reponse;
+        } catch (Exception e) {
+            Thread.currentThread().interrupt();
+            return new ArrayList();
+        }
+    }
 }
