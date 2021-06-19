@@ -45,4 +45,17 @@ public class searchController {
             return new ArrayList();
         }
     }
+
+    @GetMapping(value = "/{from}/{to}/{day}/{month}/{year}")
+    public List<Futa> getData(@PathVariable("from") final String from, @PathVariable("to") final String to, @PathVariable("day") final String day, @PathVariable("month") final String month, @PathVariable("year") final String year) {
+        var listFuta = futaRepository.findAll();
+        List<Futa> reponse = new ArrayList();
+        String Key = day+"/" + month + "/" + year;
+        for (Futa item : listFuta) {
+            if (item.getFrom().equals(from) && item.getTo().equals(to) && item.getTime().equals(Key)) {
+                reponse.add(item);
+            }
+        }
+        return reponse;
+    }
 }
