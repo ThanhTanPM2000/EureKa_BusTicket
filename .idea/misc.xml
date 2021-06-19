@@ -15,6 +15,7 @@
         <option value="$PROJECT_DIR$/my-system/calendar/pom.xml" />
         <option value="$PROJECT_DIR$/futa-system/server/pom.xml" />
         <option value="$PROJECT_DIR$/futa-system/gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/futa-system/futa-partner/pom.xml" />
       </list>
     </option>
   </component>

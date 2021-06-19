@@ -32,9 +32,9 @@ public class searchController {
     public List<Futa> getVexereTicketsFT(@PathVariable("from") String from, @PathVariable("to") String to) {
         try {
             TimeUnit.SECONDS.sleep(5);
-            var listVexere = futaRepository.findAll();
+            var listFuta = futaRepository.findAll();
             List<Futa> reponse = new ArrayList();
-            for (Futa item : listVexere) {
+            for (Futa item : listFuta) {
                 if (item.getFrom().equals(from) && item.getTo().equals(to)) {
                     reponse.add(item);
                 }

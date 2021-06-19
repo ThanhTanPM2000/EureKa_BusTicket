@@ -50,9 +50,9 @@ public class homeController {
                     throwable -> getDefaultAlbumList());
 
             System.out.println(VeXeRe);
-            if (VeXeRe.size() != 0 || !VeXeRe.isEmpty() || VeXeRe != null)
+            if (VeXeRe.size() != 0 || VeXeRe != null)
                 ticketBus.addAll(VeXeRe);
-            if (Futa.size() != 0 || !Futa.isEmpty() || Futa != null)
+            if (Futa.size() != 0 || Futa != null)
                 ticketBus.addAll(Futa);
 
             System.out.println(("Day la: " + ticketBus));
@@ -77,11 +77,13 @@ public class homeController {
 
         CircuitBreaker circuitBreaker = circuitBreakerFactory.create("circuitbreaker");
 
+        List<Ticket> Futa = circuitBreaker.run(() -> restTemplate.getForObject("http://futa-service/" + from + "/" + to, List.class),
+                throwable -> getDefaultAlbumList());
+
         List<Ticket> VeXeRe = circuitBreaker.run(() -> restTemplate.getForObject("http://vexere-service/" + from + "/" + to, List.class),
                 throwable -> getDefaultAlbumList());
 
-        List<Ticket> Futa = circuitBreaker.run(() -> restTemplate.getForObject("http://futa-service/" + from + "/" + to, List.class),
-                throwable -> getDefaultAlbumList());
+
 
         if (VeXeRe.size() != 0 || !VeXeRe.isEmpty() || VeXeRe != null)
             ticketBus.addAll(VeXeRe);

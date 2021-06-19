@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/Software Architecture and Design.iml" filepath="$PROJECT_DIR$/.idea/Software Architecture and Design.iml" />
       <module fileurl="file://$PROJECT_DIR$/my-system/calendar/calendar.iml" filepath="$PROJECT_DIR$/my-system/calendar/calendar.iml" />
       <module fileurl="file://$PROJECT_DIR$/my-system/futa-bus/futa-bus.iml" filepath="$PROJECT_DIR$/my-system/futa-bus/futa-bus.iml" />
+      <module fileurl="file://$PROJECT_DIR$/futa-system/futa-partner/futa-partner.iml" filepath="$PROJECT_DIR$/futa-system/futa-partner/futa-partner.iml" />
       <module fileurl="file://$PROJECT_DIR$/vexere-system/gateway/gateway.iml" filepath="$PROJECT_DIR$/vexere-system/gateway/gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/futa-system/gateway/gateway (1).iml" filepath="$PROJECT_DIR$/futa-system/gateway/gateway (1).iml" />
       <module fileurl="file://$PROJECT_DIR$/my-system/gateway/gateway-service.iml" filepath="$PROJECT_DIR$/my-system/gateway/gateway-service.iml" />

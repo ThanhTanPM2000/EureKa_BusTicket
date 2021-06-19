@@ -29,7 +29,7 @@ public class HomeController {
 
     @RequestMapping("/{from}/{to}")
     public List getFuTaTickets(@PathVariable("from") final String from, @PathVariable("to") final String to) throws Exception {
-        HttpURLConnection connection = (HttpURLConnection) new URL("http://localhost:1106/futa/" + from + "/" +to).openConnection();
+        HttpURLConnection connection = (HttpURLConnection) new URL("http://localhost:1120/futa/" + from + "/" +to).openConnection();
         connection.setRequestMethod("GET");
         BufferedReader inputReader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
         String inputLine;

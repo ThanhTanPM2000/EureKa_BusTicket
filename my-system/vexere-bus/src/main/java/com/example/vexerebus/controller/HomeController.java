@@ -41,7 +41,6 @@ public class HomeController {
         }
         inputReader.close();
         Gson gson = new Gson();
-        System.out.println(gson.fromJson(content.toString(), VeXeRe[].class));
         return gson.fromJson(content.toString(), List.class);
     }
 

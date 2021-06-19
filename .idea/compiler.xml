@@ -9,14 +9,15 @@
         <outputRelativeToContentRoot value="true" />
         <module name="futa-bus" />
         <module name="calendar" />
-        <module name="gateway (1)" />
         <module name="myBusTicketData" />
         <module name="server" />
+        <module name="futa-partner" />
+        <module name="vexere-bus" />
+        <module name="gateway (1)" />
         <module name="search" />
         <module name="server (1)" />
         <module name="server (2)" />
         <module name="gateway-service" />
-        <module name="vexere-bus" />
         <module name="vexere-partner" />
         <module name="gateway" />
       </profile>
@@ -24,6 +25,7 @@
     <bytecodeTargetLevel>
       <module name="calendar" target="11" />
       <module name="futa-bus" target="11" />
+      <module name="futa-partner" target="11" />
       <module name="gateway" target="1.8" />
       <module name="gateway (1)" target="1.8" />
       <module name="gateway-service" target="1.8" />
@@ -40,6 +42,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="calendar" options="-parameters" />
       <module name="futa-bus" options="-parameters" />
+      <module name="futa-partner" options="-parameters" />
       <module name="gateway" options="-parameters" />
       <module name="gateway (1)" options="-parameters" />
       <module name="gateway-service" options="-parameters" />
